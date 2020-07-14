@@ -18,6 +18,7 @@ module.exports = async (req, res) => {
   } = req.query;
   let stats;
 
+  res.setHeader("Cache-Control", "public, max-age=300");
   res.setHeader("Content-Type", "image/svg+xml");
   try {
     stats = await fetchStats(username);
